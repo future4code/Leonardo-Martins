@@ -34,84 +34,84 @@
 
 //-------------------------------------------------------------------------------------------------------------
 
-// Exercícios de escrita de código
+// // Exercícios de escrita de código
 
-// 1)
-const animaisDoUsuario = [];
-let animalEstimacaoUsuario = Number(
-  prompt(`Quantos animais de estimação você tem?`)
-);
-if (animalEstimacaoUsuario === 0) {
-  console.log(`Que pena! Voce pode adotar um pet!`);
-}
-for (let i = 0; i < animalEstimacaoUsuario; i++) {
-  nomeAnimal = prompt(`Qual o nome?`);
-  animaisDoUsuario.push(nomeAnimal);
-  console.log(nomeAnimal);
-}
+// // 1)
+// const animaisDoUsuario = [];
+// let animalEstimacaoUsuario = Number(
+//   prompt(`Quantos animais de estimação você tem?`)
+// );
+// if (animalEstimacaoUsuario === 0) {
+//   console.log(`Que pena! Voce pode adotar um pet!`);
+// }
+// for (let i = 0; i < animalEstimacaoUsuario; i++) {
+//   nomeAnimal = prompt(`Qual o nome?`);
+//   animaisDoUsuario.push(nomeAnimal);
+//   console.log(nomeAnimal);
+// }
 
-console.log(animaisDoUsuario);
+// console.log(animaisDoUsuario);
 
-// 2)
-// a)
+// // 2)
+// // a)
 const arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55];
-function imprimirArray() {
-  console.log(arrayOriginal);
-}
-imprimirArray();
+// function imprimirArray() {
+//   console.log(arrayOriginal);
+// }
+// imprimirArray();
 
-//b)
-function arrayDivididoPorDez() {
-  for (let numeroDividido of arrayOriginal) console.log(numeroDividido / 10);
-}
-arrayDivididoPorDez();
+// //b)
+// function arrayDivididoPorDez() {
+//   for (let numeroDividido of arrayOriginal) console.log(numeroDividido / 10);
+// }
+// arrayDivididoPorDez();
 
-// c)(ERRO)
+// c)
+let numeroPar = [];
 function arrayPares() {
   for (let numero of arrayOriginal) {
-    console.log(numero);
-    if (arrayOriginal[i] % 2 === 0) {
-      arrayPar.push(numero);
-      console.log(arrayPar);
+    if (numero % 2 === 0) {
+      numeroPar.push(numero);
     }
   }
+  console.log(numeroPar);
 }
 arrayPares();
 
-//d)
-function arrayIndex() {
-  for (let indiceDoArray of arrayOriginal) {
-    console.log(
-      `O elemento do index ${arrayOriginal.indexOf(
-        indiceDoArray
-      )} é ${indiceDoArray}`
-    );
-  }
-}
-arrayIndex();
+// //d)
+// function arrayIndex() {
+//   for (let indiceDoArray of arrayOriginal) {
+//     console.log(
+//       `O elemento do index ${arrayOriginal.indexOf(
+//         indiceDoArray
+//       )} é ${indiceDoArray}`
+//     );
+//   }
+// }
+// arrayIndex();
 
-// e)
-function devolveMaior(arrayOriginal) {
-  let maior = 0;
-  for (let i = 0; i < arrayOriginal.length; i++) {
-    if (arrayOriginal[i] > maior) {
-      maior = arrayOriginal[i];
-      valorMaximo = maior;
-    }
-  }
-  return `O maior número é ${maior}`;
-}
-const maiorNumeroDoArray = devolveMaior(arrayOriginal);
-console.log(maiorNumeroDoArray);
+// // e)
+// function devolveMaior(arrayOriginal) {
+//   let maior = 0;
+//   for (let i = 0; i < arrayOriginal.length; i++) {
+//     if (arrayOriginal[i] > maior) {
+//       maior = arrayOriginal[i];
+//       valorMaximo = maior;
+//     }
+//   }
+//   return `O maior número é ${maior}`;
+// }
+// const maiorNumeroDoArray = devolveMaior(arrayOriginal);
+// console.log(maiorNumeroDoArray);
 
-function devolveMenor(arrayOriginal) {
-  let menor = valorMaximo;
-  for (let i = 0; i < arrayOriginal.length; i++) {
-    if (arrayOriginal[i] < menor) {
-      menor = arrayOriginal[i];
-    }
-  }
-  return `O menor número é ${menor}`;
-}
-const menorNumeroDoArray = devolveMenor(arrayOriginal);
-console.log(menorNumeroDoArray);
+// function devolveMenor(arrayOriginal) {
+//   let menor = valorMaximo;
+//   for (let i = 0; i < arrayOriginal.length; i++) {
+//     if (arrayOriginal[i] < menor) {
+//       menor = arrayOriginal[i];
+//     }
+//   }
+//   return `O menor número é ${menor}`;
+// }
+// const menorNumeroDoArray = devolveMenor(arrayOriginal);
+// console.log(menorNumeroDoArray);
