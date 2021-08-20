@@ -26,7 +26,11 @@ function comprarCarta() {
 
   let valorCarta;
 
-  if (numero === `J` || numero === `Q` || numero === `K`) {
+  if (numero === `J`) {
+    valorCarta = 10;
+  } else if (numero === `Q`) {
+    valorCarta = 10;
+  } else if (numero === `K`) {
     valorCarta = 10;
   } else if (numero === `A`) {
     valorCarta = 11;
