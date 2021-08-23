@@ -1,165 +1,122 @@
 //////////////////// Exercício 1 ////////////////////////
-const array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const array1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const array2 = [50, 30, 45, 10, 13, 29];
-function tamanhoArray() {
-  tamanhoDoArray = array.length;
-  return tamanhoDoArray;
+function tamanhoArray(array) {
+  return array.length;
 }
-console.log(tamanhoArray());
+console.log(tamanhoArray(array1));
 
 //////////////////// Exercício 2 ////////////////////////
 
-function arrayInvertido() {
+function arrayInvertido(array) {
   return array.reverse();
 }
-console.log(arrayInvertido());
+console.log(arrayInvertido(array1));
 
 //////////////////// Exercício 3 ////////////////////////
 
-function arrayCrescente() {
-  return array2.sort();
+function arrayCrescente(array) {
+  return array.sort();
 }
-console.log(arrayCrescente());
+console.log(arrayCrescente(array2));
 
 //////////////////// Exercício 4 ////////////////////////
 
-function arrayPares() {
-  const numerosPares = array.filter((array) => array % 2 === 0);
-  return numerosPares;
+function arrayPares(array) {
+  return array.filter((array) => array % 2 === 0);
 }
-console.log(arrayPares());
+console.log(arrayPares(array1));
 
 //////////////////// Exercício 5 ////////////////////////
 
-function numerosElevados() {
-  return arrayPares().map((numero) => Math.pow(numero, 2));
+function numerosElevados(array) {
+  return arrayPares(array).map((numero) => Math.pow(numero, 2));
 }
-console.log(numerosElevados());
+console.log(numerosElevados(array1));
 
 //////////////////// Exercício 6 ////////////////////////
 
-let maior = -Infinity;
-
-for (let arrayMaior of array2) {
-  if (arrayMaior > maior) {
-    maior = arrayMaior;
+function maiorNumero(array) {
+  let maior = array[0];
+  for (i = 1; i < array.length; i++) {
+    if (array[i] > maior) maior = array[i];
   }
+  return maior;
 }
-frase = `O maior número é ${maior}`;
-
-console.log(frase);
+console.log(maiorNumero(array1));
 
 //////////////////// Exercício 7 ////////////////////////
 
-num1 = 15;
-num2 = 30;
-function doisNumeros() {
-  if (num1 > num2) {
-    console.log(`Maior número é: ${num1}`);
-    if (num1 % num2 === 0) {
-      console.log(`O número 1 é divisível pelo número 2? ${num1 % num2 === 0}`);
-      if (`A diferença entre os números é de: ${num1 - num2}`) {
-      }
-    }
-  } else if (num2 > num1) {
-    console.log(`Maior número é: ${num2}`);
-    if (num2 % num1 === 0) {
-      console.log(`O número 2 é divisível pelo número 1? ${num2 % num1 === 0}`);
-      if (num2 - num1) {
-        console.log(`A diferença entre os números é de: ${num2 - num1}`);
-      }
-    }
-  }
+function doisNumeros(a, b) {
+  const numerosOrdenados = arrayCrescente([a, b]);
+  return {
+    maiorNumero: numerosOrdenados[1],
+    maiorDivisivelMenor: numerosOrdenados[1] % numerosOrdenados[0] === 0,
+    doferenca: numerosOrdenados[1] - numerosOrdenados[0],
+  };
 }
-doisNumeros();
+console.log(doisNumeros(15, 30));
 
 //////////////////// Exercício 8 ////////////////////////
 
-function nPares(n) {
-  return arrayPares().slice(0, n);
+function nPares(array, n) {
+  return arrayPares(array).slice(0, n);
 }
-console.log(nPares(3));
-console.log(nPares(5));
+console.log(nPares(array1, 3));
+console.log(nPares(array1, 5));
 
 ////////////////// Exercício 9 ////////////////////////
-const ladoA = 10;
-const ladoB = 20;
-const ladoC = 50;
 
-function tipoDeTriangulo() {
-  if (ladoA === ladoB && ladoB === ladoC && ladoA === ladoC) {
-    console.log(`É um triangulo EQUILÁTERO`);
-  } else if (ladoA === ladoB && ladoB !== ladoC && ladoA !== ladoC) {
-    console.log(`É um triangulo ISÓSCELES`);
-  } else if (ladoA !== ladoB && ladoB !== ladoC && ladoA === ladoC) {
-    console.log(`É um triangulo ISÓSCELES`);
-  } else if (ladoA !== ladoB && ladoB === ladoC && ladoA !== ladoC) {
-    console.log(`É um triangulo ISÓSCELES`);
+function tipoDeTriangulo(a, b, c) {
+  if (a === b && b === c) {
+    return "É um triangulo EQUILÁTERO";
+  } else if (a !== b && b !== c && a !== c) {
+    return "É um triangulo ESCALENO";
   } else {
-    console.log(`É um trinagulo ESCALENO`);
+    return "É um trinagulo ISÓSCELES";
   }
 }
-tipoDeTriangulo();
+console.log(tipoDeTriangulo(20, 10, 30));
 //////////////////// Exercício 10 ////////////////////////
 
-let maiorNum = -Infinity;
-let menorNum = +Infinity;
-novoArray = [];
-
-for (let arrayMaiorNumero of array2) {
-  if (arrayMaiorNumero > maiorNum) {
-    maiorNum = arrayMaiorNumero;
-  }
+function segundoMaiorEMenor(array) {
+  const arrayOrdenada = arrayCrescente(array);
+  return [arrayOrdenada.slice(-2)[0], arrayOrdenada[1]];
 }
-for (let arrayMenorNumero of array2) {
-  if (arrayMenorNumero < menorNum) {
-    menorNum = arrayMenorNumero;
-  }
-}
-novoArray = ` ${maiorNum}, ${menorNum}`;
-
-console.log(novoArray);
-
+console.log(segundoMaiorEMenor(array2));
 //////////////////// Exercício 11 ////////////////////////
+const filmeExemplo = {
+  nome: "O Diabo Veste Prada",
+  ano: 2006,
+  diretor: "David Frankel",
+  atores: ["Meryl Streep", " Anne Hathaway", " Emily Blunt", " Stanley Tucci"],
+};
 
-function filmes() {
-  const filme = {
-    nome: "O Diabo Veste Prada",
-    ano: 2006,
-    diretor: "David Frankel",
-    atores: [
-      "Meryl Streep",
-      " Anne Hathaway",
-      " Emily Blunt",
-      " Stanley Tucci",
-    ],
-  };
-  frase = `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores}.`;
-  return frase;
+function filmeEmCartaz(filme) {
+  return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores}.`;
 }
-console.log(filmes());
+console.log(filmeEmCartaz(filmeExemplo));
 
 //////////////////// Exercício 12 ////////////////////////
 
-function dadosPessoais() {
-  dados = {
-    nome: "Astrodev",
-    idade: 25,
-    email: "astrodev@labenu.com.br",
-    endereco: "Rua do Futuro, 4",
-  };
+const dadosExemplo = {
+  nome: "Astrodev",
+  idade: 25,
+  email: "astrodev@labenu.com.br",
+  endereco: "Rua do Futuro, 4",
+};
 
-  novosDados = {
+function dadosPessoais(dados) {
+  return {
     ...dados,
-    nome: `ANÔNIMO`,
+    nome: "ANÔNIMO",
   };
-  return novosDados;
 }
-console.log(dadosPessoais());
+console.log(dadosPessoais(dadosExemplo));
 
 //////////////////// Exercício 13 ////////////////////////
 
-pessoas = [
+const pessoasArray = [
   { nome: "Paula", idade: 12, altura: 1.8 },
   { nome: "João", idade: 20, altura: 1.3 },
   { nome: "Pedro", idade: 15, altura: 1.9 },
@@ -169,21 +126,25 @@ pessoas = [
 ];
 // a)
 
-const pessoasComPermissao = pessoas.filter((dados) => {
-  return dados.altura > 1.5 && dados.idade > 14 && dados.idade < 60;
-});
-console.log(pessoasComPermissao);
+function pessoasComPermissao(pessoas) {
+  return pessoas.filter((dados) => {
+    return dados.altura > 1.5 && dados.idade > 14 && dados.idade < 60;
+  });
+}
+console.log(pessoasComPermissao(pessoasArray));
 
 // b)
 
-const pessoasSemPermissao = pessoas.filter((dados) => {
-  return dados.altura < 1.5 || dados.idade < 14 || dados.idade > 60;
-});
-console.log(pessoasSemPermissao);
+function pessoasSemPermissao(pessoas) {
+  return pessoas.filter((dados) => {
+    return dados.altura < 1.5 || dados.idade < 14 || dados.idade > 60;
+  });
+}
+console.log(pessoasSemPermissao(pessoasArray));
 
 //////////////////// Exercício 14 ////////////////////////
 
-const banco = [
+const bancoArray = [
   { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
   { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
   { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
@@ -192,7 +153,7 @@ const banco = [
   { cliente: "Soter", saldoTotal: 1200, compras: [] },
 ];
 
-function saldoDosClientes() {
+function saldoDosClientes(banco) {
   const clientesSaida = banco.map((cliente) => {
     if (cliente.compras.length) {
       const comprasTotal = cliente.compras.reduce(
@@ -205,7 +166,7 @@ function saldoDosClientes() {
   });
   return clientesSaida;
 }
-console.log(saldoDosClientes());
+console.log(saldoDosClientes(bancoArray));
 
 //////////////////// Exercício 15 ////////////////////////
 
@@ -216,11 +177,11 @@ const clientesEscritorio = [
   { nome: "Márcia", dataDaConsulta: "04/05/2021" },
 ];
 
-function clientesOrdemAlfabetica() {
-  return clientesEscritorio.sort((a, b) => {
+function clientesOrdemAlfabetica(clientes) {
+  return clientes.sort((a, b) => {
     const nomeA = a.nome.toLowerCase();
     const nomeB = b.nome.toLowerCase();
     return nomeA < nomeB ? -1 : nomeA > nomeB ? 1 : 0;
   });
 }
-console.log(clientesOrdemAlfabetica());
+console.log(clientesOrdemAlfabetica(clientesEscritorio));
