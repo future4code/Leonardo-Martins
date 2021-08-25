@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Controle de Estoque</title>
+    <link rel="stylesheet" type="text/css" href="loja.css" />
+  </head>
+  <body>
+    <div>
+      <p>
+        <u><b class="titulo-alternativo">Loja Torcedor</b></u>
+      </p>
+    </div>
+
+    <div class="div-abas">
+      <a href="index.html"><button>Página Inicial</button></a>
+      <a href="./ctrl-estoque.html"><button>Controle de Estoque</button></a>
+      <a href="./add-produto.html"><button>Adicionar Produto</button></a>
+      <a href="./funcionarios.html"><button>Funcionários</button></a>
+    </div>
+
+    <h2>
+      <u><b class="titulo-alternativo">Controle de Estoque</b></u>
+    </h2>
+
+    <table class="estoque">
+      <tr>
+        <th>Foto</th>
+        <th>Descrição</th>
+        <th>Preço (R$)</th>
+        <th>Quantidade disponível</th>
+      </tr>
+
+      <tr class="times">
+        <td class="fundo-branco">
+          <img src="./imagens/gremio.jpg" alt="Grêmio" class="camisas" />
+        </td>
+        <td class="fundo-azul">Grêmio</td>
+        <td class="fundo-branco">R$259,90</td>
+        <td class="fundo-preto">(7)</td>
+      </tr>
+
+      <tr class="times">
+        <td class="fundo-branco">
+          <img src="./imagens/sao-paulo.jpg" alt="São Paulo" class="camisas" />
+        </td>
+        <td class="fundo-branco">São Paulo</td>
+        <td class="fundo-vermelho">R$279,99</td>
+        <td class="fundo-preto">(9)</td>
+      </tr>
+
+      <tr class="times">
+        <td class="fundo-branco">
+          <img src="./imagens/flamengo.jpg" alt="Flamengo" class="camisas" />
+        </td>
+        <td class="fundo-vermelho">Flamengo</td>
+        <td class="fundo-preto">R$179,99</td>
+        <td class="fundo-vermelho">(4)</td>
+      </tr>
+
+      <tr class="times">
+        <td class="fundo-branco">
+          <img src="./imagens/brasil.jpg" alt="Brasil" class="camisas" />
+        </td>
+        <td class="fundo-verde">Brasil</td>
+        <td class="fundo-amarelo">R$199,99</td>
+        <td class="fundo-azul">(15)</td>
+      </tr>
+      <tr class="times">
+        <td class="fundo-branco">
+          <img src="./imagens/inter.jpg" alt="Internacional" class="camisas" />
+        </td>
+        <td class="fundo-vermelho">Internacional</td>
+        <td style="color: red" class="fundo-branco">R$199,90</td>
+        <td class="fundo-vermelho">(2)</td>
+      </tr>
+    </table>
+  </body>
+</html>
