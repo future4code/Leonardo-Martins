@@ -131,6 +131,10 @@ td button {
 body.capa {
   background-color: #2274a5;
 }
-.texto-tabela {
+/* .texto-tabela {
   text-align: center;
+} */
+.imagens-tamanho {
+  width: 50px;
+  padding: 20px;
 }
