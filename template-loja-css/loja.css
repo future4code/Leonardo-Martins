@@ -1,0 +1,103 @@
+.titulo-loja {
+  padding-left: 550px;
+  color: brown;
+  font-style: oblique;
+}
+body {
+  background-color: beige;
+}
+.div-abas {
+  margin: 0px;
+  padding: 5px;
+}
+.redes-sociais {
+  font-size: 30px;
+  color: brown;
+  margin: 0px;
+  font-style: oblique;
+}
+.redes {
+  padding: 20px;
+  font-size: 25px;
+  color: brown;
+  font-style: oblique;
+}
+.endereco {
+  color: brown;
+  font-size: 40px;
+  padding: 550px;
+  margin: 0px;
+  font-style: oblique;
+}
+.redes-sociais-imagem {
+  width: 200px;
+}
+button {
+  background-color: black;
+  color: beige;
+  padding: 5px;
+  margin: 2px;
+}
+.torcida {
+  width: 100%;
+  text-align: center;
+}
+.titulo-alternativo {
+  font-size: 30px;
+  color: brown;
+  font-style: oblique;
+}
+.camisas {
+  width: 100%;
+}
+.times {
+  font-size: 25px;
+  margin: 20px;
+  padding: 50px;
+  text-align: center;
+}
+.fundo-branco {
+  background-color: white;
+}
+.fundo-azul {
+  background-color: blue;
+  color: white;
+}
+.fundo-preto {
+  background-color: black;
+  color: white;
+}
+.fundo-amarelo {
+  background-color: yellow;
+}
+.fundo-verde {
+  background-color: green;
+  color: white;
+}
+.fundo-vermelho {
+  background-color: red;
+  color: white;
+}
+table.estoque tr th {
+  padding-bottom: 10px;
+  font-size: 20px;
+  color: brown;
+}
+table.estoque {
+  width: 100%;
+  table-layout: fixed;
+}
+.caixa-resposta {
+  background-color: black;
+  margin: 10px;
+  padding: 5px;
+  color: white;
+}
+.add-prod {
+  color: brown;
+  font-size: 25px;
+}
+.funcionarios {
+  font-size: 25px;
+  color: brown;
+}
