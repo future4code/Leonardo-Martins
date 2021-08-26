@@ -141,3 +141,11 @@ body.capa {
 .lupa {
   width: 20px;
 }
+.botao-diferente:hover {
+  color: rgb(253, 252, 252);
+  background-color: rgba(122, 122, 122, 0.103);
+}
+.botao-diferente:active {
+  color: rgb(255, 255, 255);
+  background-color: rgba(5, 3, 3, 0.767);
+}
