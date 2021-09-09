@@ -44,7 +44,7 @@ class Share extends React.Component {
 
   render() {
     return (
-      <ShareContainer onClick={this.onShareConfirm}>
+      <ShareContainer>
         <Tittle>Compatilhar: </Tittle>
         <SocialLinks>
           <IconImage
