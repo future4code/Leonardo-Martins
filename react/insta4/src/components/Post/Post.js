@@ -91,6 +91,10 @@ class Post extends React.Component {
     });
   };
 
+  onClickEncaminhar = () => {
+    this.props.onShareClick(true);
+  };
+
   render() {
     let iconeCurtida;
 
