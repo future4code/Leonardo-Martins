@@ -48,12 +48,23 @@ class App extends React.Component {
 
   componentDidMount = () => {
     const formString = window.localStorage.getItem("form");
-    const form = JSON.parse(formString);
-    this.setState({
-      tarefas: form.tarefas,
-      inputValue: form.inputValue,
-      filtro: form.filtro,
-    });
+
+    if (formString) {
+      const form = JSON.parse(formString);
+      this.setState({
+        tarefas: form.tarefas,
+        inputValue: form.inputValue,
+        filtro: form.filtro,
+      });
+    } else {
+      const form = {
+        tarefas: this.state.tarefas,
+        inputValue: this.state.inputValue,
+        filtro: this.state.filtro,
+      };
+
+      window.localStorage.setItem("form", JSON.stringify(form));
+    }
   };
 
   onChangeInput = (event) => {
@@ -123,6 +134,7 @@ class App extends React.Component {
           {listaFiltrada.map((tarefa) => {
             return (
               <Tarefa
+                key={tarefa.id}
                 completa={tarefa.completa}
                 onClick={() => this.selectTarefa(tarefa.id)}
               >
