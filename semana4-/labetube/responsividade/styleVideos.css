@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  grid-template-rows: 80px 1fr 80px;
+  grid-template-columns: 1fr;
+}
+header {
+  background-color: deepskyblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.video1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+button {
+  width: 10%;
+  height: 5%;
+  margin: 20px;
+  border-radius: 30px;
+  background-color: lightgrey;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: deepskyblue;
+  align-items: center;
+  height: 100%;
+}
+.logo {
+  width: 10%;
+}
+.titulo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+main {
+  padding: 10px;
+}
+h1 {
+  padding: 20px;
+}
+
+.gostei {
+  width: 10%;
+  height: 15%;
+  border-radius: 50px;
+}
+.nao-gostei {
+  width: 7%;
+  height: 10%;
+  border-radius: 50px;
+}
+.gostei:hover {
+  background-color: greenyellow;
+}
+.gostei:active {
+  background-color: green;
+}
+.nao-gostei:hover {
+  background-color: red;
+}
+.nao-gostei:active {
+  background-color: darkred;
+}
+
+.interacao {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.comentario {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+input {
+  margin: 20px;
+  width: 30%;
+  height: 100%;
+  color: black;
+  text-align: center;
+  border-radius: 30px;
+}
+input:hover {
+  background-color: rgb(133, 225, 255);
+}
+input:active {
+  background-color: rgb(56, 208, 255);
+}
+video {
+  width: 50%;
+}
+
+button:hover {
+  background-color: grey;
+}
+
+@media screen and (min-device-width: 300px) and (max-device-width: 700px) {
+  .titulo {
+    width: 20%;
+  }
+  .logo {
+    width: 70%;
+  }
+  .video1 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .interacao {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .comentario {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
