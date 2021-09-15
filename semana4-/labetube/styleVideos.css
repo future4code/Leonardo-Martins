@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  grid-template-rows: 80px 1fr 80px;
+}
+header {
+  background-color: deepskyblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.video1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  width: 80px;
+  height: 30px;
+  margin: 20px;
+  border-radius: 30px;
+  background-color: lightgrey;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: deepskyblue;
+  align-items: center;
+}
+.logo {
+  width: 100px;
+}
+.titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main {
+  padding: 10px;
+}
+h1 {
+  padding: 20px;
+}
+
+.gostei {
+  width: 130px;
+  height: 70px;
+  border-radius: 50px;
+}
+.nao-gostei {
+  width: 110px;
+  height: 70px;
+  border-radius: 50px;
+}
+.gostei:hover {
+  background-color: greenyellow;
+}
+.gostei:active {
+  background-color: green;
+}
+.nao-gostei:hover {
+  background-color: red;
+}
+.nao-gostei:active {
+  background-color: darkred;
+}
+
+.interacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.comentario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  margin: 20px;
+  width: 350px;
+  height: 150px;
+  color: black;
+  text-align: center;
+  border-radius: 30px;
+}
+input:hover {
+  background-color: rgb(133, 225, 255);
+}
+input:active {
+  background-color: rgb(56, 208, 255);
+}
+video {
+  width: 50%;
+}
+
+button:hover {
+  background-color: grey;
+}
