@@ -1,4 +1,5 @@
 import React from "react";
+import DetalheUsuario from "./Components/DetalheUsuario";
 import TelaCadastro from "./Components/TelaCadastro";
 import TelaListaUsuario from "./Components/TelaListaUsuario";
 
@@ -13,6 +14,8 @@ export default class App extends React.Component {
         return <TelaCadastro irParaLista={this.irParaLista} />;
       case "lista":
         return <TelaListaUsuario irParaCadastro={this.irParaCadastro} />;
+      case "detalhe":
+        return <DetalheUsuario irParaDetalhe={this.irParaDetalhe} />;
 
       default:
         return <div>Erro! Página não encontrada.</div>;
@@ -25,6 +28,10 @@ export default class App extends React.Component {
 
   irParaLista = () => {
     this.setState({ telaAtual: "lista" });
+  };
+
+  irParaDetalhe = () => {
+    this.setState({ telaAtual: "detalhe" });
   };
 
   render() {

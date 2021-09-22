@@ -12,18 +12,22 @@ const DivCard = styled.div`
 `;
 
 const DivButton = styled.button`
-  display: flex;
-  justify-content: center;
-  width: 150px;
-  height: 36px;
-  margin: 10px;
-  border-radius: 8px;
-  background-color: black;
-  color: lightsalmon;
+  border: none;
+  background-color: white;
 
-  :hover {
-    background-color: lightsalmon;
-    color: black;
+  button {
+    text-align: center;
+    width: 150px;
+    height: 36px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: black;
+    color: lightsalmon;
+
+    :hover {
+      background-color: lightsalmon;
+      color: black;
+    }
   }
 `;
 
@@ -106,8 +110,9 @@ export default class TelaCadastro extends React.Component {
   render() {
     return (
       <DivCard>
-        <DivButton onClick={this.props.irParaLista}>
-          Ir para Lista de Usuários
+        <DivButton>
+          <button onClick={this.props.irParaLista}>Lista de Usuários</button>
+          <button onClick={this.props.irParaDetalhe}>Detalhe Usuário</button>
         </DivButton>
         <ContainerCadastro>
           <h2>Cadastro</h2>

@@ -36,20 +36,20 @@ const CardUsuario = styled.div`
   }
 `;
 
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 150px;
-  height: 36px;
-  margin: 10px;
-  border-radius: 8px;
-  background-color: black;
-  color: lightsalmon;
+const DivButton = styled.div`
+  button {
+    text-align: center;
+    width: 150px;
+    height: 36px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: black;
+    color: lightsalmon;
 
-  :hover {
-    background-color: lightsalmon;
-    color: black;
+    :hover {
+      background-color: lightsalmon;
+      color: black;
+    }
   }
 `;
 
@@ -120,7 +120,10 @@ export default class TelaListaUsuario extends React.Component {
 
     return (
       <ContainerLista>
-        <Button onClick={this.props.irParaCadastro}>Ir para Cadastro</Button>
+        <DivButton>
+          <button onClick={this.props.irParaCadastro}>Cadastro</button>
+          <button onClick={this.props.irParaDetalhe}>Detalhe Usuário</button>
+        </DivButton>
         <ListaDeUsuarios>
           <h2>Lista de Usuários</h2>
           {listaUsuarios}
