@@ -20,15 +20,12 @@ const CardUsuario = styled.div`
   justify-content: space-between;
   background-color: black;
   color: lightsalmon;
-
   :hover {
     font-size: 24px;
   }
-
   button {
     border-radius: 20px;
     background-color: lightsalmon;
-
     :hover {
       background-color: red;
       font-size: 20px;
@@ -45,7 +42,6 @@ const DivButton = styled.div`
     border-radius: 8px;
     background-color: black;
     color: lightsalmon;
-
     :hover {
       background-color: lightsalmon;
       color: black;

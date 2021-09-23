@@ -10,7 +10,6 @@ const DivButton = styled.div`
     border-radius: 8px;
     background-color: black;
     color: lightsalmon;
-
     :hover {
       background-color: lightsalmon;
       color: black;

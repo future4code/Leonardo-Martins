@@ -14,7 +14,6 @@ const DivCard = styled.div`
 const DivButton = styled.button`
   border: none;
   background-color: white;
-
   button {
     text-align: center;
     width: 150px;
@@ -23,7 +22,6 @@ const DivButton = styled.button`
     border-radius: 8px;
     background-color: black;
     color: lightsalmon;
-
     :hover {
       background-color: lightsalmon;
       color: black;
@@ -39,19 +37,16 @@ const ContainerCadastro = styled.div`
   border: 1px solid black;
   width: 300px;
   background-color: lightsalmon;
-
   input {
     background-color: lightsalmon;
     margin: 8px;
     border-radius: 8px;
     border: 1px solid black;
-
     :hover {
       width: 200px;
       height: 24px;
     }
   }
-
   button {
     width: 100px;
     height: 36px;
@@ -59,7 +54,6 @@ const ContainerCadastro = styled.div`
     border-radius: 8px;
     background-color: black;
     color: lightsalmon;
-
     :hover {
       font-size: 20px;
       width: 150px;
