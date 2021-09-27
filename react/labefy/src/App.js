@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import styled from "styled-components";
-import PlaylistList from "./Components/PlaylistList";
 
 const ContainerApp = styled.div`
   border: 1px solid black;
@@ -67,6 +66,17 @@ const PlaylistsNames = styled.div`
   }
 `;
 
+const AddMusic = styled.div`
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  input {
+    margin: 8px 0px;
+  }
+`;
+
 const headers = {
   headers: {
     Authorization: "leonardo-martins-maryam",
@@ -77,6 +87,7 @@ export default class App extends React.Component {
   state = {
     playlists: [],
     playlistName: "",
+    tracks: [],
     musicName: "",
     artist: "",
     urlMusic: "",
@@ -127,6 +138,7 @@ export default class App extends React.Component {
       .get(url, headers)
       .then((res) => {
         console.log(res.data);
+        this.setState({ tracks: res.data.result.tracks });
       })
       .catch((err) => {
         console.log(err);
@@ -183,6 +195,8 @@ export default class App extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+
+    this.setState({ musicName: "", artist: "", urlMusic: "" });
   };
 
   render() {
@@ -210,8 +224,8 @@ export default class App extends React.Component {
           <button onClick={this.createPlaylist}>Enviar</button>
         </PlaylistsNames>
         {playlistComponents}
-        <PlaylistList />
-        <div>
+        {/* <PlaylistList /> */}
+        <AddMusic>
           <input
             value={this.state.musicName}
             onChange={this.handleMusicName}
@@ -227,8 +241,11 @@ export default class App extends React.Component {
             onChange={this.handleUrlMusic}
             placeholder={"url da música"}
           />
+          {/* <select />
+          <option value={this.state.playlistName} /> */}
+
           <button onClick={this.addTrackToPlaylist}>Adicionar música</button>
-        </div>
+        </AddMusic>
       </ContainerApp>
     );
   }
