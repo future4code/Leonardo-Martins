@@ -8,7 +8,7 @@ const PokeCard = () => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
       .then((response) => {
-        setPokemon((pokemon = response.data));
+        setPokemon(response.data);
         console.log(response.data);
       })
       .catch((err) => {
