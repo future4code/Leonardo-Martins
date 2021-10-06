@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const PokeCard = () => {
+const PokeCard = (props) => {
   const [pokemon, setPokemon] = useState({});
 
   const pegaPokemon = (pokeName) => {
@@ -9,7 +9,6 @@ const PokeCard = () => {
       .get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
       .then((response) => {
         setPokemon(response.data);
-        console.log(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -17,10 +16,8 @@ const PokeCard = () => {
   };
 
   useEffect(() => {
-    if (!pokemon) {
-      pegaPokemon(pokemon);
-    }
-  }, [pokemon]);
+    pegaPokemon(props.pokemon);
+  }, [props.pokemon]);
 
   return (
     <div>
