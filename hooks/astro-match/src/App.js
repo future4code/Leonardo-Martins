@@ -2,6 +2,52 @@ import React from "react";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import Home from "./components/Home/Home";
 import Matches from "./components/Matches/Matches";
+import styled from "styled-components";
+import axios from "axios";
+
+const Header = styled.header`
+  display: flex;
+  justify-content: center;
+
+  h2 {
+    font-size: 36px;
+  }
+
+  button {
+    border: none;
+    /* border-bottom: 1px solid black; */
+    background-color: white;
+    margin: 20px;
+  }
+`;
+
+const AppContainer = styled.div`
+  border: 1px solid black;
+  width: 500px;
+  margin: 20px;
+  padding-bottom: 20px;
+`;
+
+const Match = styled.button`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 32px;
+`;
+
+const Footer = styled.footer`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 12px;
+
+  button {
+    border-radius: 12px;
+    border: 4px solid black;
+    font-size: 16px;
+  }
+`;
 
 class App extends React.Component {
   state = {
@@ -45,67 +91,38 @@ class App extends React.Component {
     }
   };
 
+  clearApp = () => {
+    axios
+      .put(
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/clear"
+      )
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   render() {
     return (
-      <div>
-        <header>
-          <h1>AstroMatch</h1>
-          <button onClick={this.displayHome}>Home</button>
-          <button onClick={this.displayProfileCard}>Encontre pessoas</button>
-          <button onClick={this.displayMatches}>Matches</button>
-        </header>
+      <AppContainer>
+        <Header>
+          <Match onClick={this.displayProfileCard}> 🚻 </Match>
+          <button onClick={this.displayHome}>
+            <h2>AstroMatch</h2>
+          </button>
+          {/* <button onClick={this.displayProfileCard}>Encontre pessoas</button> */}
+          <Match onClick={this.displayMatches}> 💌 </Match>
+        </Header>
+        <hr />
         {this.changeTab()}
-      </div>
+        <Footer>
+          <button onClick={this.clearApp}>Reiniciar</button>
+        </Footer>
+      </AppContainer>
     );
   }
 }
 
 export default App;
-
-// import React, { useEffect, useState } from "react";
-// import ProfileCard from "./components/ProfileCard/ProfileCard";
-// import Home from "./components/Home/Home";
-// import Matches from "./components/Matches/Matches";
-
-// const App = () => {
-//   const [tab, setTab] = useState("");
-
-//   useEffect(() => {
-//     displayHome();
-//   }, []);
-
-//   const displayProfileCard = () => {
-//     setTab({ tab: "profile card" });
-//   };
-
-//   const displayMatches = () => {
-//     setTab({ tab: "matches" });
-//   };
-
-//   const displayHome = () => {
-//     setTab({ tab: "home" });
-//   };
-
-//   const changeTab = () => {
-//     switch (tab) {
-//       case "profile card":
-//         return <ProfileCard />;
-
-//       case "matches":
-//         return <Matches />;
-
-//       case "home":
-//         return (
-//           <Home
-//             displayProfileCard={displayProfileCard}
-//             displayMatches={displayMatches}
-//           />
-//         );
-
-//       default:
-//         break;
-//     }
-//   };
-// };
-
-// export default App;
