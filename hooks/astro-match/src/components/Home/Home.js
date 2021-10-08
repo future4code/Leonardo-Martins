@@ -7,6 +7,7 @@ const HomeContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 12px;
+
   input {
     margin: 12px;
   }
@@ -21,26 +22,24 @@ const Email = styled.div`
   display: flex;
 `;
 
-const Senha = styled.div`
+const Password = styled.div`
   display: flex;
 `;
 
-class Home extends React.Component {
-  render() {
-    return (
-      <HomeContainer>
-        <Email>
-          <h3>E-mail: </h3>
-          <input placeholder={"E-mail"} />
-        </Email>
-        <Senha>
-          <h3>Senha: </h3>
-          <input placeholder={"Senha"} />
-        </Senha>
-        <button onClick={this.props.displayProfileCard}>Entrar</button>
-      </HomeContainer>
-    );
-  }
-}
+const Home = (props) => {
+  return (
+    <HomeContainer>
+      <Email>
+        <h3>E-mail: </h3>
+        <input placeholder={"E-mail"} />
+      </Email>
+      <Password>
+        <h3>Senha: </h3>
+        <input placeholder={"Senha"} />
+      </Password>
+      <button onClick={props.displayProfileCard}>Entrar</button>
+    </HomeContainer>
+  );
+};
 
 export default Home;

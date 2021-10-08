@@ -13,15 +13,13 @@ const User = styled.li`
   }
 `;
 
-class MatchesUser extends React.Component {
-  render() {
-    return (
-      <User>
-        <img src={this.props.user.photo} />
-        <p>{this.props.user.name}</p>
-      </User>
-    );
-  }
-}
+const MatchesUser = (props) => {
+  return (
+    <User>
+      <img alt={props.user.name} src={props.user.photo} />
+      <p>{props.user.name}</p>
+    </User>
+  );
+};
 
 export default MatchesUser;

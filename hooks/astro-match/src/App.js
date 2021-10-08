@@ -1,8 +1,8 @@
-import React from "react";
-import ProfileCard from "./components/ProfileCard/ProfileCard";
+import React, { useRef, useState } from "react";
+import styled from "styled-components";
+import ProfileCard from "./components/ProfileCards/ProfileCards";
 import Home from "./components/Home/Home";
 import Matches from "./components/Matches/Matches";
-import styled from "styled-components";
 import axios from "axios";
 
 const Header = styled.header`
@@ -13,7 +13,7 @@ const Header = styled.header`
   }
   button {
     border: none;
-    /* border-bottom: 1px solid black; */
+
     background-color: white;
     margin: 20px;
   }
@@ -47,80 +47,71 @@ const Footer = styled.footer`
   }
 `;
 
-class App extends React.Component {
-  state = {
-    tab: "",
+const App = () => {
+  const [tab, setTab] = useState("");
+
+  const matchesRef = useRef();
+
+  const displayProfileCard = () => {
+    setTab("profile card");
   };
 
-  componentDidMount = () => {
-    this.displayHome();
+  const displayMatches = () => {
+    setTab("matches");
   };
 
-  displayProfileCard = () => {
-    this.setState({ tab: "profile card" });
+  const displayHome = () => {
+    setTab("home");
   };
 
-  displayMatches = () => {
-    this.setState({ tab: "matches" });
-  };
-
-  displayHome = () => {
-    this.setState({ tab: "home" });
-  };
-
-  changeTab = () => {
-    switch (this.state.tab) {
+  const changeTab = () => {
+    switch (tab) {
       case "profile card":
         return <ProfileCard />;
 
       case "matches":
-        return <Matches />;
-
-      case "home":
-        return (
-          <Home
-            displayProfileCard={this.displayProfileCard}
-            displayMatches={this.displayMatches}
-          />
-        );
+        return <Matches ref={matchesRef} />;
 
       default:
-        break;
+        return (
+          <Home
+            displayProfileCard={displayProfileCard}
+            displayMatches={displayMatches}
+          />
+        );
     }
   };
 
-  clearApp = () => {
+  const clearApp = () => {
     axios
       .put(
         "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonardo-martins/clear"
       )
       .then((res) => {
         console.log(res.data);
+        matchesRef.current.clearMatches();
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  render() {
-    return (
-      <AppContainer>
-        <Header>
-          <Match onClick={this.displayProfileCard}> 🚻 </Match>
-          <button onClick={this.displayHome}>
-            <h2>AstroMatch</h2>
-          </button>
-          {/* <button onClick={this.displayProfileCard}>Encontre pessoas</button> */}
-          <Match onClick={this.displayMatches}> 💌 </Match>
-        </Header>
-        <hr />
-        {this.changeTab()}
-        <Footer>
-          <button onClick={this.clearApp}>Reiniciar</button>
-        </Footer>
-      </AppContainer>
-    );
-  }
-}
+  return (
+    <AppContainer>
+      <Header>
+        <Match onClick={displayProfileCard}> 🚻 </Match>
+        <button onClick={displayHome}>
+          <h2>AstroMatch</h2>
+        </button>
+        <Match onClick={displayMatches}> 💌 </Match>
+      </Header>
+      <hr />
+      {changeTab()}
+      <Footer>
+        <button onClick={clearApp}>Reiniciar</button>
+      </Footer>
+    </AppContainer>
+  );
+};
 
 export default App;
