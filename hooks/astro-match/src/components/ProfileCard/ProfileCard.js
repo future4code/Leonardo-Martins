@@ -6,7 +6,6 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   button {
     margin: 12px;
     border-radius: 12px;
@@ -23,7 +22,6 @@ const Profile = styled.div`
   justify-content: center;
   width: 400px;
   padding: 12px;
-
   img {
     width: 400px;
     height: 350px;
@@ -34,7 +32,6 @@ const Character = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
   h3 {
     margin-right: 12px;
   }
@@ -63,10 +60,14 @@ class ProfileCard extends React.Component {
     bio: "",
   };
 
+  componentDidMount = () => {
+    this.getProfileToChoose();
+  };
+
   getProfileToChoose = () => {
     axios
       .get(
-        `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/person`
+        `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonardo-martins/person`
       )
       .then((res) => {
         console.log(res.data);
@@ -88,7 +89,7 @@ class ProfileCard extends React.Component {
     };
 
     const url =
-      "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/choose-person";
+      "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonardo-martins/choose-person";
 
     axios
       .post(url, body)

@@ -1,40 +1,37 @@
 import axios from "axios";
 import React from "react";
+import MatchesUser from "./MatchesUser";
 
 class Matches extends React.Component {
   state = {
-    idCharacter: "",
-    nameCharacter: "",
-    image: "",
+    matches: [],
+  };
+
+  componentDidMount = () => {
+    this.getMatches();
   };
 
   getMatches = () => {
     axios
       .get(
-        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/matches"
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonardo-martins/matches"
       )
       .then((res) => {
         console.log(res.data);
-        this.setState({ idCharacter: res.data.matches.id });
-        this.setState({ nameCharacter: res.data.matches.name });
-        this.setState({ image: res.data.matches.photo });
+        this.setState({ matches: res.data.matches });
       })
       .catch((err) => {
         console.log(err);
       });
   };
   render() {
+    const matchedUsers = this.state.matches.map((user) => {
+      return <MatchesUser user={user} key={user.id} />;
+    });
     return (
       <div>
         <h1>Seus matches</h1>
-        <li
-          key={this.state.idCharacter}
-          match={this.match}
-          onClick={this.getMatches}
-        >
-          <img src={this.state.image} alt={`foto de personagem`} />
-          <p>{this.state.nameCharacter}</p>
-        </li>
+        <ul>{matchedUsers}</ul>
       </div>
     );
   }

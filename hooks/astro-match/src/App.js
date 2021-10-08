@@ -8,11 +8,9 @@ import axios from "axios";
 const Header = styled.header`
   display: flex;
   justify-content: center;
-
   h2 {
     font-size: 36px;
   }
-
   button {
     border: none;
     /* border-bottom: 1px solid black; */
@@ -94,7 +92,7 @@ class App extends React.Component {
   clearApp = () => {
     axios
       .put(
-        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/clear"
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonardo-martins/clear"
       )
       .then((res) => {
         console.log(res.data);

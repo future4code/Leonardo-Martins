@@ -7,11 +7,9 @@ const HomeContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 12px;
-
   input {
     margin: 12px;
   }
-
   button {
     border-radius: 12px;
     border: 4px solid black;
