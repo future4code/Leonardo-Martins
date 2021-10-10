@@ -8,22 +8,32 @@ import axios from "axios";
 const Header = styled.header`
   display: flex;
   justify-content: center;
+  border-bottom: 1px solid black;
+  background-color: lightblue;
+
   h2 {
     font-size: 36px;
+    background-color: lightblue;
   }
   button {
     border: none;
-
-    background-color: white;
+    background-color: lightblue;
     margin: 20px;
+
+    :hover {
+      font-size: 48px;
+    }
   }
 `;
 
 const AppContainer = styled.div`
   border: 1px solid black;
-  width: 500px;
-  margin: 20px;
+  width: 430px;
   padding-bottom: 20px;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Match = styled.button`
@@ -44,6 +54,7 @@ const Footer = styled.footer`
     border-radius: 12px;
     border: 4px solid black;
     font-size: 16px;
+    background-color: lightblue;
   }
 `;
 
@@ -105,7 +116,6 @@ const App = () => {
         </button>
         <Match onClick={displayMatches}> 💌 </Match>
       </Header>
-      <hr />
       {changeTab()}
       <Footer>
         <button onClick={clearApp}>Reiniciar</button>

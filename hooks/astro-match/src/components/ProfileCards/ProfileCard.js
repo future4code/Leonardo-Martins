@@ -7,7 +7,7 @@ const UserCard = styled.div`
   border-radius: 12px;
   overflow: hidden;
   position: absolute;
-  background-color: white;
+  background-color: lightblue;
   bottom: 0;
   left: 0;
   box-shadow: 0px 0px 25px -5px rgba(107, 107, 107, 1);
@@ -32,8 +32,11 @@ const UserCard = styled.div`
 
 const Character = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 12px;
+
   h3 {
     margin-right: 12px;
   }
@@ -47,8 +50,8 @@ const ProfileCard = (props) => {
         <h3>
           {props.profile.name}, {props.profile.age}
         </h3>
+        <p>{props.profile.bio}</p>
       </Character>
-      <p>{props.profile.bio}</p>
     </UserCard>
   );
 };

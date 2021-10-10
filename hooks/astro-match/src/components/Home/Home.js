@@ -15,6 +15,7 @@ const HomeContainer = styled.div`
     border-radius: 12px;
     border: 4px solid black;
     font-size: 16px;
+    background-color: lightblue;
   }
 `;
 
