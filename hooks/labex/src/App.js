@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { AdminHomePage } from "./pages/AdminHomePage";
+import { ApplicationFormPage } from "./pages/ApplicationFormPage";
+import { Home } from "./pages/Home";
+import { ListTripPage } from "./pages/ListTripPage";
+import { LoginPage } from "./pages/LoginPage";
+import { CreateTrip } from "./pages/CreateTrip";
+import { TripDetails } from "./pages/TripDetails";
+import { BrowserRouter, Switch, Route } from "react";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={"/"}>
+          <Home />
+        </Route>
+
+        <Route exact path={"/trips/list"}>
+          <ListTripPage />
+        </Route>
+
+        <Route exact path={"/trips/application"}>
+          <ApplicationFormPage />
+        </Route>
+
+        <Route exact path={"/login"}>
+          <LoginPage />
+        </Route>
+
+        <Route exact path={"/admin/trips/list"}>
+          <AdminHomePage />
+        </Route>
+
+        <Route exact path={"/admin/trips/create"}>
+          <CreateTrip />
+        </Route>
+
+        <Route exact path={"/admin/trips/:id"}>
+          <TripDetails />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
