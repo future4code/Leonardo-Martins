@@ -1,14 +1,14 @@
 import React from "react";
-import { AdminHomePage } from "./pages/AdminHomePage";
-import { ApplicationFormPage } from "./pages/ApplicationFormPage";
 import { Home } from "./pages/Home";
 import { ListTripPage } from "./pages/ListTripPage";
+import { ApplicationFormPage } from "./pages/ApplicationFormPage";
 import { LoginPage } from "./pages/LoginPage";
+import { AdminHome } from "./pages/AdminHome";
 import { CreateTrip } from "./pages/CreateTrip";
 import { TripDetails } from "./pages/TripDetails";
-import { BrowserRouter, Switch, Route } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
       <Switch>
@@ -29,7 +29,7 @@ const App = () => {
         </Route>
 
         <Route exact path={"/admin/trips/list"}>
-          <AdminHomePage />
+          <AdminHome />
         </Route>
 
         <Route exact path={"/admin/trips/create"}>
@@ -42,6 +42,6 @@ const App = () => {
       </Switch>
     </BrowserRouter>
   );
-};
+}
 
 export default App;
