@@ -9,3 +9,7 @@ export const goToRegistration = (history) => {
 export const goToFeed = (history) => {
   history.push("/feed");
 };
+
+export const goToPost = (history) => {
+  history.push("/post");
+};

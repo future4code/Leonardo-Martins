@@ -2,37 +2,20 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import useForm from "../../hooks/useForm";
 import { useHistory } from "react-router-dom";
-import useUnprotectedPage from "../../hooks/useUnprotectedPage";
-import { signup } from "../../services/user";
+import { login } from "../../services/user";
 
-const Registration = ({ setRightButtonText }) => {
-  useUnprotectedPage();
+const LoginForm = ({ setRightButtonText }) => {
+  const [form, onChange, clear] = useForm({ email: "", password: "" });
   const history = useHistory();
-  const [form, onChange, clear] = useForm({
-    username: "",
-    email: "",
-    password: "",
-  });
 
   const onSubmitForm = (e) => {
     e.preventDefault();
-    signup(form, clear, history, setRightButtonText);
+    login(form, clear, history, setRightButtonText);
   };
 
   return (
     <div>
       <form onSubmit={onSubmitForm}>
-        <TextField
-          name={"username"}
-          value={form.username}
-          onChange={onChange}
-          label={"Nome"}
-          variant={"outlined"}
-          fullWidth
-          margin={"normal"}
-          required
-          type={"name"}
-        />
         <TextField
           name={"email"}
           value={form.email}
@@ -62,11 +45,11 @@ const Registration = ({ setRightButtonText }) => {
           variant={"contained"}
           color={"primary"}
         >
-          Fazer Cadastro
+          Fazer login
         </Button>
       </form>
     </div>
   );
 };
 
-export default Registration;
+export default LoginForm;

@@ -1,23 +1,29 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router";
+import Button from "@material-ui/core/Button";
+import useForm from "../../hooks/useForm";
+import { useHistory } from "react-router-dom";
+import LoginForm from "./LoginForm";
 import { goToRegistration } from "../../routes/coordinator";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
-const LoginPage = () => {
+const LoginPage = ({ setRightButtonText }) => {
+  useUnprotectedPage();
   const history = useHistory();
-  const [data, setData] = useState({ email: "", password: "" });
+  const [form, onChange, clear] = useForm({ email: "", password: "" });
+
   return (
     <div>
-      <header>
-        <h2>Labeddit</h2>
-      </header>
-      <hr />
       <h3>Login</h3>
-      <form>
-        <input placeholder="E-mail" type="email"></input>
-        <input placeholder="Senha" type="password"></input>
-      </form>
-      <button>Fazer login</button>
-      <button onClick={() => goToRegistration(history)}>Cadastre-se</button>
+      <LoginForm setRightButtonText={setRightButtonText} />
+      <Button
+        onClick={() => goToRegistration(history)}
+        type={"submit"}
+        margin={"normal"}
+        fullWidth
+        variant={"text"}
+        color={"primary"}
+      >
+        Cadastre-se
+      </Button>
     </div>
   );
 };
