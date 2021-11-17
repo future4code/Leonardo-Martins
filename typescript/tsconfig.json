@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "./build",
+    "rootDir": "./src",
+    "removeComments": true,
+    "noImplicitAny": true
+    /* Specify ECMAScript target version */
+    /* Specify module code generation */
+    /* Generates corresponding '.map' file. */
+    /* Redirect output structure to the directory. */
+    /* Specify the root directory of input files. */
+    /* Do not emit comments to output. */
+    /* Raise error on declarations with an implied 'any' type. */
+  }
+}
