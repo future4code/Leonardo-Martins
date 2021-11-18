@@ -63,6 +63,33 @@ app.get("/countries/search", (request, response) => {
   response.status(200).send(result);
 });
 
+// ENDPOINT EDITAR PAÍS
+
+app.put("/countries/:id", (req, res) => {
+  try {
+    const id = req.params.id;
+
+    let result = countries.find((country) => country.id === Number(id));
+
+    const newResult = {
+      id: result?.id,
+      name: req.body.name,
+      capital: req.body.capital,
+      continent: result?.continent,
+    };
+
+    if (result === undefined) {
+      throw new Error("Nenhum resultado foi encontrado");
+    }
+    result.name = newResult.name;
+    console.log(newResult);
+
+    res.status(200).send(newResult);
+  } catch (erro: any) {
+    res.status(400).send({ message: erro.message });
+  }
+});
+
 // ENDPOINT DE DELETAR PAÍS
 app.delete("/countries/:id", async (req, res) => {
   try {
