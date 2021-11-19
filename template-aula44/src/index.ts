@@ -107,31 +107,6 @@ app.get("/users/:type", (req: Request, res: Response) => {
   }
 });
 
-app.get("/users/:id", (req: Request, res: Response) => {
-  let errorCode: number = 400;
-  try {
-    const id: number = Number(req.params.id);
-
-    if (isNaN(id)) {
-      errorCode = 422; //unprocessable entity
-      throw new Error("Invalid value for id. Please send a number.");
-    }
-
-    const user = users.find((user) => {
-      return user.id === id;
-    });
-
-    if (!user) {
-      errorCode = 404;
-      throw new Error("User not found.");
-    }
-
-    res.status(200).send(user);
-  } catch (error: any) {
-    res.status(errorCode).send({ message: error.message });
-  }
-});
-
 // 3)
 //a )
 app.get("/users/:name", (req: Request, res: Response) => {
@@ -178,32 +153,6 @@ app.post("/users", (req: Request, res: Response) => {
     users.push(newUser);
 
     res.status(201).send({ message: "User created successefully" });
-  } catch (error: any) {
-    res.status(errorCode).send({ messagem: error.message });
-  }
-});
-
-app.patch("/users", (req: Request, res: Response) => {
-  let errorCode: number = 400;
-  try {
-    const { id, name, email, type, age } = req.body;
-
-    if (!id || !name || !email || !type || !age) {
-      errorCode = 422;
-      throw new Error("Please check the fields!");
-    }
-
-    const newUser: user = {
-      id,
-      name,
-      email,
-      type,
-      age,
-    };
-
-    users.push(newUser);
-
-    res.status(201).send({ message: "User updated successefully" });
   } catch (error: any) {
     res.status(errorCode).send({ messagem: error.message });
   }
