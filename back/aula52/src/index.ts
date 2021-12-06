@@ -20,6 +20,8 @@ class UserAccount {
   }
 }
 
+const myAccount = new UserAccount("12345678910", "Leonardo", 25);
+
 // c) através do this
 
 // Exercício 2
