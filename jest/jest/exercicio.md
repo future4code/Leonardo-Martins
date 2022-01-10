@@ -23,7 +23,7 @@ a) test("Saldo maior do que o valor da compra", () => {
 
 	const result = performPurchase(user, 40)
 
-	expect(result).toBeGreaterThan({
+	expect(result).toEqual({
 		name: "Leonardo",
 		balance: 80
 	})
@@ -37,7 +37,7 @@ b)test("Saldo igual ao valor da compra", () => {
 
 	const result = performPurchase(user, 100)
 
-	expect(result).toBeGreaterThanOrEqual({
+	expect(result).toEqual({
 		name: "Léo",
 		balance: 0
 	})
@@ -51,5 +51,5 @@ c) test("Saldo menor do que o valor da compra", () => {
 
 	const result = performPurchase(user, 50)
 
-	expect(result).toBeLessThan()
+	expect(result).not.toBeDefined()
 })
