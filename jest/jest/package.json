@@ -1,0 +1,24 @@
+{
+  "name": "jest-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/index.ts",
+    "demo-test": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/tests.ts",
+    "test" : "clear && jest",
+    "start": "tsc && node ./build/src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.0.6",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.9.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.6"
+  }
+}
