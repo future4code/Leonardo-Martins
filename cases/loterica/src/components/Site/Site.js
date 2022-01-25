@@ -20,7 +20,7 @@ class Site extends React.Component{
   render(){
     return (
       <div>
-
+        <button onClick={getLoterias()}>clicar</button>
      </div>
     )
   }
