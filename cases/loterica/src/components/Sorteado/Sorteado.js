@@ -28,10 +28,11 @@ const Sorteado = () => {
     })
   };
 
-  const selecionaIdConcurso = (event) => {
-      setIdConcurso(event.target.value)
-    }
+  // const selecionaIdConcurso = (event) => {
+  //     setIdConcurso(event.target.value)
+  //   }
     console.log(idConcurso);
+
 
   const getConcursos = () => {
     axios.get(`${BASE_URL}/concursos/${idConcurso}`)
