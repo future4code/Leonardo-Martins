@@ -10,6 +10,16 @@ const MainContainer = styled.div`
   align-items: center;
 `;
 
+const Header = styled.header`
+  background-color: lightsalmon;
+  margin-bottom: 12px;
+  border-bottom: 1px solid black;
+`;
+
+const Feed = styled.div`
+  background-color: white;
+`;
+
 const AdicionarPost = styled.div`
   display: flex;
   justify-content: center;
@@ -18,15 +28,16 @@ const AdicionarPost = styled.div`
   input {
     height: 20px;
     width: 100px;
-    margin: 16px 0px;
+    margin: 16px 4px;
     border-radius: 8px;
     text-align: center;
   }
   button {
-    margin-left: 16px;
-    width: 150px;
+    margin: 8px;
+    width: 100px;
     height: 40px;
     border-radius: 16px;
+
   }
 `;
 
@@ -101,29 +112,30 @@ class App extends React.Component {
     });
     return (
       <div>
-        <AdicionarPost>
-          <input
-            value={this.state.inputNomeUsuario}
-            onChange={this.onChangeInputNomeUsuario}
-            placeholder={"Nome"}
-          />
-          <input
-            value={this.state.inputFotoUsuario}
-            onChange={this.onChangeInputFotoUsuario}
-            placeholder={"Foto Usuário"}
-          />
-          <input
-            value={this.state.inputPost}
-            onChange={this.onChangeInputPost}
-            placeholder={"Post"}
-          />
-          <button onClick={this.adicionaPost}>Adicionar Post</button>
-        </AdicionarPost>
-        <hr />
+        <Header>
+          <AdicionarPost>
+            <input
+              value={this.state.inputNomeUsuario}
+              onChange={this.onChangeInputNomeUsuario}
+              placeholder={"Nome"}
+            />
+            <input
+              value={this.state.inputFotoUsuario}
+              onChange={this.onChangeInputFotoUsuario}
+             placeholder={"Foto perfil"}
+            />
+            <input
+              value={this.state.inputPost}
+              onChange={this.onChangeInputPost}
+             placeholder={"Foto post"}
+            />
+            <button onClick={this.adicionaPost}>Postar</button>
+          </AdicionarPost>
+        </Header>
 
-        <div>
+        <Feed>
           <MainContainer>{listaPosts}</MainContainer>
-        </div>
+        </Feed>
 
         {this.state.sharing && <Share onShareClick={this.handleShare} />}
       </div>
